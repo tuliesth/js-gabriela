@@ -1,0 +1,74 @@
+// fantasia, aventura, drama
+
+// a viagem de chihiro, LIVRE, fantasia *
+// o rei leão, LIVRE, aventura * 
+
+// mogli o menino lobo, 10, fantasia aventura *
+// meu amigo dragao, 10, fantasia aventura
+
+// o caçador e a rainha de gelo, 12 fantasia *
+// rei arthur a lenda da espada, 14 aventura *
+// warcraft o encontro de dois mundos, 14 fantasia *
+
+// o resgate do soldado  ryan, 14 drama *
+
+
+let campoIdade;
+let campoFantasia;
+let campoDrama;
+
+function setup() {
+  createCanvas(800, 400);
+  createElement("h2,", "Recomendador de filmes");
+  createSpan("Sua idade:");
+  campoIdade = createInput("10");
+  campoFantasia = createCheckbox("Gosta de fantasia?");
+  campoDrama = createCheckbox("Gosta de Drama?");
+}
+
+function draw() {
+    background ("white");
+    let idade = campoIdade.value();
+    let gostaDeFantasia = campoFantasia. checked();
+    let gostaDeDrama = campoDrama. checked();
+    let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeDrama);
+  fill(color(200, 100, 0))
+  textAlign(CENTER, CENTER);
+  textSize(38);
+  text (recomendacao, width / 2, height / 2 );
+}
+
+
+
+function geraRecomendacao(idade, gostaDeFantasia, gostaDeDrama) {
+    if (idade >= 10) {
+      if (idade>= 14) {
+        if (gostaDeFantasia) {
+        return "Rei Arthur e a lenda da espada";
+        } else {
+          if(idade >= 12) {
+            if (gostaDeFantasia) {
+            return "o caçador e a rainha de gelo";
+          } else {
+        if (gostaDeDrama) {
+        return "O Resgate do Soldado Ryan"
+        } else {
+          return "warcraft o encontro de dois mundos"
+          }
+        }
+        }
+        }
+      } else {
+        if (gostaDeFantasia) {
+        return "Mogli o menino lobo";
+        } else {
+        return "O Rei Leão"
+       }
+      }
+    } else {
+    if(gostaDeFantasia) {
+    return "A viagem de chihiro";
+    } else {
+    return "Meu Amigo Dragão";
+  }
+    }} 
